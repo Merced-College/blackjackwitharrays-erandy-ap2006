@@ -1,8 +1,14 @@
+/* Names: Erandy Aguilar Perez 
+*  Date: 01/21/25
+*  Assignment: To update BlackJack (10-20 lines)
+*/
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class BlackJack {
-
+    //constants - cannot change their values
+    //static - I can use these in every function without having to pass them in 
     private static final String[] SUITS = { "Hearts", "Diamonds", "Clubs", "Spades" };
     private static final String[] RANKS = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
             "Ace" };
@@ -13,7 +19,7 @@ public class BlackJack {
         Scanner scanner = new Scanner(System.in);
 
         initializeDeck();
-        shuffleDeck();
+        shuffleDeck(); 
 
         int playerTotal = dealInitialPlayerCards();
         int dealerTotal = dealInitialDealerCards();
@@ -40,6 +46,8 @@ public class BlackJack {
         Random random = new Random();
         for (int i = 0; i < DECK.length; i++) {
             int index = random.nextInt(DECK.length);
+
+            //The following 3 lines below are using the swap algorithm. 
             int temp = DECK[i];
             DECK[i] = DECK[index];
             DECK[index] = temp;
